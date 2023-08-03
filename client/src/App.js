@@ -11,7 +11,6 @@ import Contact from './pages/Contact';
 
 function App() {
   const [page, setPage] = useState('landing');
-  const [count, setCount] = useState(0);
 
   const handlePageView = () => {
 
@@ -27,15 +26,11 @@ function App() {
 
   return (
     <>
-      <Header count={count} page={page} setPage={setPage} />
+      <Header page={page} setPage={setPage} />
 
       {handlePageView()}
 
-      <p>Count: {count}</p>
-
-      <button onClick={() => setCount(count + 1)}>Increase</button>
-
-      <Footer count={count} />
+      <Footer />
     </>
   );
 }

@@ -25,7 +25,6 @@ function Header(propsObj) {
         <a onClick={changePage} className={propsObj.page === 'about' ? 'active' : ''} href="/about">About</a>
         <a onClick={changePage} className={propsObj.page === 'contact' ? 'active' : ''} href="/contact">Contact</a>
       </nav>
-      <p>Count: {propsObj.count}</p>
     </header>
   )
 }
