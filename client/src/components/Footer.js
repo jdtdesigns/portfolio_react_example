@@ -6,6 +6,7 @@ function Footer(propsObj) {
     <footer className="row justify-between">
       <p>&copy; {year}</p>
       <p>Dev'd and Designed by JD Tadlock</p>
+      <p>Count: {propsObj.count}</p>
     </footer>
   )
 }
