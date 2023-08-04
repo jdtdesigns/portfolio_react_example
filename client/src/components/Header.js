@@ -17,9 +17,19 @@ function Header(propsObj) {
     }
   }
 
+  const toggleMode = () => {
+    propsObj.setDarkMode(!propsObj.darkMode);
+  }
+
   return (
     <header className="row justify-between align-center">
       <h3>Logo</h3>
+
+
+      <div onClick={toggleMode} className="toggle-bar">
+        <span className={`toggle ${propsObj.darkMode ? 'dark-mode' : ''}`}></span>
+      </div>
+
       <nav>
         <a onClick={changePage} className={propsObj.page === 'landing' ? 'active' : ''} href="/">Home</a>
         <a onClick={changePage} className={propsObj.page === 'about' ? 'active' : ''} href="/about">About</a>

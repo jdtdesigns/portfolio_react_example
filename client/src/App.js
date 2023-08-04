@@ -11,12 +11,19 @@ import Contact from './pages/Contact';
 
 function App() {
   const [page, setPage] = useState('landing');
+  const [studentName, setStudentName] = useState('');
+  const [students, setStudents] = useState(['Erin', 'Hernan', 'Liam', 'Jonathan']);
+  const [darkMode, setDarkMode] = useState(false);
 
   const handlePageView = () => {
 
     switch (page) {
       case 'landing':
-        return <Landing />;
+        return <Landing
+          studentName={studentName}
+          setStudentName={setStudentName}
+          students={students}
+          setStudents={setStudents} />;
       case 'about':
         return <About />;
       default:
@@ -25,13 +32,17 @@ function App() {
   }
 
   return (
-    <>
-      <Header page={page} setPage={setPage} />
+    <div className={`container ${darkMode ? 'dark' : ''}`}>
+      <Header
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+        page={page}
+        setPage={setPage} />
 
       {handlePageView()}
 
-      <Footer />
-    </>
+      <Footer studentName={studentName} />
+    </div>
   );
 }
 
