@@ -4,6 +4,7 @@ import { getNames } from './utils';
 // Component Imports
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Modal from './components/Modal';
 
 // Page imports
 import Landing from './pages/Landing';
@@ -15,6 +16,7 @@ function App() {
   const [studentName, setStudentName] = useState('');
   const [students, setStudents] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const names = getNames();
@@ -31,7 +33,10 @@ function App() {
           studentName={studentName}
           setStudentName={setStudentName}
           students={students}
-          setStudents={setStudents} />;
+          setStudents={setStudents}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />;
       case 'about':
         return <About />;
       default:
@@ -48,6 +53,8 @@ function App() {
         setPage={setPage} />
 
       {handlePageView()}
+
+      <Modal showModal={showModal} />
 
       <Footer studentName={studentName} />
     </div>

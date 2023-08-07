@@ -100,3 +100,21 @@ form {
     font-size: 1rem;
   }
 }
+
+.modal {
+  position: absolute;
+  z-index: 100;
+  top: 100px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 400px;
+  padding: 35px 20px;
+  background: #777;
+  color: #fff;
+  text-align: center;
+  display: none;
+  &.show {
+    display: initial;
+  }
+}

@@ -9,6 +9,9 @@ function Landing(props) {
     const names = addName(props.studentName);
     props.setStudents([...names]);
     props.setStudentName('');
+    props.setShowModal(true);
+
+    setTimeout(() => props.setShowModal(false), 2000);
   }
 
   return (
