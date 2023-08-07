@@ -1,10 +1,13 @@
+import { addName } from '../utils';
+
 function Landing(props) {
   const handleNameInput = (event) => {
     props.setStudentName(event.target.value);
   }
 
   const addStudent = () => {
-    props.setStudents([...props.students, props.studentName]);
+    const names = addName(props.studentName);
+    props.setStudents([...names]);
     props.setStudentName('');
   }
 
@@ -14,6 +17,9 @@ function Landing(props) {
       <p>Welcome to our React Starter Site</p>
 
       <h3>Student List:</h3>
+
+      {!props.students.length && <p>No students have been added.</p>}
+
       {props.students.map((student, i) => (
         <p key={i}>{student}</p>
       ))}

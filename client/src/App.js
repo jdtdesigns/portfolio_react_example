@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getNames } from './utils';
 
 // Component Imports
 import Header from './components/Header';
@@ -12,8 +13,15 @@ import Contact from './pages/Contact';
 function App() {
   const [page, setPage] = useState('landing');
   const [studentName, setStudentName] = useState('');
-  const [students, setStudents] = useState(['Erin', 'Hernan', 'Liam', 'Jonathan']);
+  const [students, setStudents] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const names = getNames();
+
+    setStudents([...names]);
+    console.log('use effect');
+  }, []);
 
   const handlePageView = () => {
 
