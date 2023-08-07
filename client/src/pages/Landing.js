@@ -6,12 +6,10 @@ function Landing(props) {
   }
 
   const addStudent = () => {
+    console.log(props.studentName);
     const names = addName(props.studentName);
     props.setStudents([...names]);
     props.setStudentName('');
-    props.setShowModal(true);
-
-    setTimeout(() => props.setShowModal(false), 2000);
   }
 
   return (

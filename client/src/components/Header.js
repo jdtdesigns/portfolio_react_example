@@ -1,24 +1,8 @@
-function Header(propsObj) {
-  const changePage = (event) => {
-    event.preventDefault();
+import { NavLink } from 'react-router-dom';
 
-    const link = event.target;
-    const text = link.innerText;
-
-    switch (text) {
-      case 'About':
-        propsObj.setPage('about');
-        break;
-      case 'Contact':
-        propsObj.setPage('contact');
-        break;
-      default:
-        propsObj.setPage('landing');
-    }
-  }
-
+function Header(props) {
   const toggleMode = () => {
-    propsObj.setDarkMode(!propsObj.darkMode);
+    props.setDarkMode(!props.darkMode);
   }
 
   return (
@@ -27,13 +11,13 @@ function Header(propsObj) {
 
 
       <div onClick={toggleMode} className="toggle-bar">
-        <span className={`toggle ${propsObj.darkMode ? 'dark-mode' : ''}`}></span>
+        <span className={`toggle ${props.darkMode ? 'dark-mode' : ''}`}></span>
       </div>
 
       <nav>
-        <a onClick={changePage} className={propsObj.page === 'landing' ? 'active' : ''} href="/">Home</a>
-        <a onClick={changePage} className={propsObj.page === 'about' ? 'active' : ''} href="/about">About</a>
-        <a onClick={changePage} className={propsObj.page === 'contact' ? 'active' : ''} href="/contact">Contact</a>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
       </nav>
     </header>
   )
