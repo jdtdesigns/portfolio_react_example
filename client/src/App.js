@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import Landing from './pages/Landing';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Portfolio from './pages/Portfolio';
 
 function App() {
   const [studentName, setStudentName] = useState('');
@@ -40,6 +41,8 @@ function App() {
         <Route path="/about" element={<About />} />
 
         <Route path="/contact" element={<Contact />} />
+
+        <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
 
       <Footer studentName={studentName} />
